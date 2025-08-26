@@ -72,14 +72,6 @@ export async function extractZipFile(
           continue
         }
 
-        // Get file size (approximate, since ZIP doesn't always provide exact uncompressed size)
-        const compressedSize = zipFile._data?.compressedSize || 0
-        if (compressedSize > opts.maxFileSize) {
-          result.totalSkipped++
-          result.warnings.push(`Skipped ${fileName}: File too large (${Math.round(compressedSize / (1024 * 1024))}MB)`)
-          continue
-        }
-
         // Extract file content
         const content = await zipFile.async('string')
         

@@ -315,7 +315,9 @@ export function FileUploadStatus({
               
               <div className="flex items-center space-x-2">
                 {file.extractedFrom && (
-                  <Archive className="size-3 text-blue-500" title={`Extracted from ${file.extractedFrom}`} />
+                  <div title={`Extracted from ${file.extractedFrom}`}>
+                    <Archive className="size-3 text-blue-500" />
+                  </div>
                 )}
                 
                 {file.parsedData ? (
